@@ -164,7 +164,13 @@ internal static class EntityResolver
         /// <returns>The metadata for the entity.</returns>
         internal EntityMetadata GetEntityMetadata(object entity)
         {
-            EntityMetadata metadata = new() { Id = IdPropertyInfo.GetValue(entity)?.ToString() };
+            object? idValue = IdPropertyInfo.GetValue(entity);
+
+            EntityMetadata metadata = new()
+            {
+                Id = idValue?.ToString(),
+                Key = [idValue]
+            };
 
             if (UpdatedAtPropertyInfo is not null)
             {

@@ -65,7 +65,7 @@ internal class PullOperationManager(OfflineDbContext context, IEnumerable<Type> 
                     {
                         EntityMetadata metadata = EntityResolver.GetEntityMetadata(item, pullResponse.EntityType);
                         currentMetadata = metadata;
-                        object? originalEntity = await context.FindAsync(pullResponse.EntityType, [metadata.Id], cancellationToken).ConfigureAwait(false);
+                        object? originalEntity = await context.FindAsync(pullResponse.EntityType, metadata.Key, cancellationToken).ConfigureAwait(false);
 
                         if (originalEntity is null && !metadata.Deleted)
                         {

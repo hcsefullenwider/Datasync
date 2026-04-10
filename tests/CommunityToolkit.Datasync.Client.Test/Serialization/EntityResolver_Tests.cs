@@ -103,6 +103,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().Be(entity.UpdatedAt);
         metadata.Version.Should().Be(entity.Version);
         metadata.Deleted.Should().Be(entity.Deleted);
@@ -119,6 +121,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
         metadata.Deleted.Should().Be(false);
@@ -135,6 +139,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id.ToString());
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
         metadata.Deleted.Should().Be(false);
@@ -151,6 +157,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id.ToString());
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
         metadata.Deleted.Should().Be(false);
@@ -167,6 +175,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id.ToString());
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
         metadata.Deleted.Should().Be(false);
@@ -185,6 +195,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().Be(entity.UpdatedAt);
         metadata.Version.Should().Be(Convert.ToBase64String(entity.Version));
     }
@@ -200,6 +212,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity);
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
     }
@@ -220,6 +234,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity, entity.GetType());
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().Be(entity.UpdatedAt);
         metadata.Version.Should().Be(entity.Version);
         metadata.Deleted.Should().Be(entity.Deleted);
@@ -236,6 +252,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity, entity.GetType());
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
         metadata.Deleted.Should().Be(false);
@@ -253,6 +271,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity, entity.GetType());
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
         metadata.Deleted.Should().BeTrue();
@@ -271,6 +291,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity, entity.GetType());
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().Be(entity.UpdatedAt);
         metadata.Version.Should().Be(Convert.ToBase64String(entity.Version));
     }
@@ -286,6 +308,8 @@ public class EntityResolver_Tests
         EntityMetadata metadata = EntityResolver.GetEntityMetadata(entity, entity.GetType());
 
         metadata.Id.Should().Be(entity.Id);
+        metadata.Key.Should().HaveCount(1);
+        metadata.Key.Should().Contain(entity.Id);
         metadata.UpdatedAt.Should().BeNull();
         metadata.Version.Should().BeNull();
     }
