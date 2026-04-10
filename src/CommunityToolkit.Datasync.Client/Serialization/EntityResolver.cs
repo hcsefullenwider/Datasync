@@ -88,10 +88,6 @@ internal static class EntityResolver
             // Find the IdPropertyInfo
             IdPropertyInfo = props.SingleOrDefault(x => x.Name.Equals(nameof(EntityMetadata.Id), StringComparison.Ordinal))
                 ?? throw new DatasyncException($"Entity type '{type.Name}' does not have an 'Id' property.");
-            if (IdPropertyInfo.PropertyType != typeof(string))
-            {
-                throw new DatasyncException($"Entity type '{type.Name}' does not have a string 'Id' property.");
-            }
 
             UpdatedAtPropertyInfo = props.SingleOrDefault(x => x.Name.Equals(nameof(EntityMetadata.UpdatedAt), StringComparison.Ordinal));
             if (UpdatedAtPropertyInfo is not null && !HasType(UpdatedAtPropertyInfo.PropertyType, [ typeof(DateTimeOffset) ]))
@@ -163,7 +159,7 @@ internal static class EntityResolver
         /// <returns>The metadata for the entity.</returns>
         internal EntityMetadata GetEntityMetadata(object entity)
         {
-            EntityMetadata metadata = new() { Id = (string?)IdPropertyInfo.GetValue(entity) };
+            EntityMetadata metadata = new() { Id = IdPropertyInfo.GetValue(entity)?.ToString() };
 
             if (UpdatedAtPropertyInfo is not null)
             {
