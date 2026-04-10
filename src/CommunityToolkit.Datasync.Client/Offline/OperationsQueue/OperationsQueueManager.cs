@@ -398,7 +398,7 @@ internal class OperationsQueueManager : IOperationsQueueManager
         {
             _ = response.ContentStream.Seek(0L, SeekOrigin.Begin); // Reset the memory stream to the beginning.
             object? newValue = JsonSerializer.Deserialize(response.ContentStream, entityType, DatasyncSerializer.JsonSerializerOptions);
-            object? oldValue = await this._context.FindAsync(entityType, [operation.ItemId], cancellationToken).ConfigureAwait(false);
+            object? oldValue = await this._context.FindAsync(entityType, KeyConverter.GetKey(entityType, operation.ItemId), cancellationToken).ConfigureAwait(false);
             ReplaceDatabaseValue(oldValue, newValue);
         }
 
