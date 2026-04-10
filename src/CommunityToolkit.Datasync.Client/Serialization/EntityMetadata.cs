@@ -15,6 +15,11 @@ public class EntityMetadata
     public string? Id { get; set; }
 
     /// <summary>
+    /// The primary key of the entity.
+    /// </summary>
+    public object?[]? Key { get; set; }
+
+    /// <summary>
     /// The date/time stamp for the last updated state.
     /// </summary>
     public DateTimeOffset? UpdatedAt { get; set; }
