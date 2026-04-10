@@ -16,6 +16,9 @@ internal static class SupportedIdTypes
         typeof(string)
     };
 
+    public static bool Contains(Type type) =>
+        Types.Contains(type);
+
     public static bool Contains(PropertyInfo idProperty) =>
-        Types.Contains(idProperty.PropertyType);
+        Contains(idProperty.PropertyType);
 }
