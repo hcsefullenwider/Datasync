@@ -89,6 +89,11 @@ internal static class EntityResolver
             IdPropertyInfo = props.SingleOrDefault(x => x.Name.Equals(nameof(EntityMetadata.Id), StringComparison.Ordinal))
                 ?? throw new DatasyncException($"Entity type '{type.Name}' does not have an 'Id' property.");
 
+            if (!SupportedIdTypes.Contains(IdPropertyInfo))
+            {
+                throw new DatasyncException($"Entity type '{type.Name}' has an 'Id' property of an unsupported type.");
+            }
+
             UpdatedAtPropertyInfo = props.SingleOrDefault(x => x.Name.Equals(nameof(EntityMetadata.UpdatedAt), StringComparison.Ordinal));
             if (UpdatedAtPropertyInfo is not null && !HasType(UpdatedAtPropertyInfo.PropertyType, [ typeof(DateTimeOffset) ]))
             {

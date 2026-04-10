@@ -26,6 +26,7 @@ public class EntityResolver_Tests
     [InlineData(typeof(Resolver_I_WU_V))]
     [InlineData(typeof(Resolver_I_NU_WV))]
     [InlineData(typeof(Resolver_I_OU_OSV_WD))]
+    [InlineData(typeof(Resolver_Double))]
     public void EntityResolver_Bad_Throws(Type sut)
     {
         Action act = () => _ = EntityResolver.GetEntityPropertyInfo(sut);
@@ -345,6 +346,7 @@ public class EntityResolver_Tests
         public string Id { get; set; } = string.Empty;
         public Guid Version { get; set; }
     }
+
     class Resolver_I_OU_OSV_WD
     {
         public string Id { get; set; } = string.Empty;
@@ -352,6 +354,15 @@ public class EntityResolver_Tests
         public string? Version { get; set; }
         public int Deleted { get; set; }
     }
+
+    class Resolver_Double
+    {
+        public double Id { get; set; }
+        public DateTimeOffset? UpdatedAt { get; set; }
+        public string? Version { get; set; }
+        public bool? Deleted { get; set; }
+    }
+
     #endregion
 
     #region Good Entity Types
