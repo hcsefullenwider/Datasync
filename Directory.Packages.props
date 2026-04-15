@@ -4,8 +4,8 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <PropertyGroup>
-    <DotNetVersion>10.0.3</DotNetVersion>
-    <EFCoreVersion>10.0.3</EFCoreVersion>
+    <DotNetVersion>10.0.6</DotNetVersion>
+    <EFCoreVersion>10.0.6</EFCoreVersion>
     <TestContainersVersion>4.10.0</TestContainersVersion>
     <ODataVersion>8.4.3</ODataVersion>
   </PropertyGroup>
